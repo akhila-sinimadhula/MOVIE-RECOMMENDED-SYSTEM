@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Available Movies</h2>
+    <div class="row">
+        {% for movie in movies %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    {% if movie.movie_image %}
+                        <img src="{{ movie.movie_image }}" class="card-img-top" alt="{{ movie.movie_name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ movie.movie_name }}</h5>
+                        <p class="card-text">{{ movie.movie_description }}</p>
+                        <p class="fw-bold">₹{{ movie.price }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No movies available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5 col-md-4">
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Login</h2>
+        {% for message in messages %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        <input type="text" name="username" class="form-control" placeholder="Username">
+        <input type="password" name="password" class="form-control mt-2" placeholder="Password">
+        <button class="btn btn-success mt-2">Login</button>
+    </form>
+</div>
+{% endblock %}
